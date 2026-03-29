@@ -19,10 +19,13 @@ export default function RootLayout({
     <html lang="es" className="h-full" suppressHydrationWarning>
       <body className="min-h-full flex flex-col font-sans antialiased">
         <ThemeProvider>
-          <TooltipProvider delayDuration={0}>
+          {/* Emil: skipDelayDuration=300 → subsequent tooltips open instantly */}
+          <TooltipProvider delayDuration={400} skipDelayDuration={300}>
             {children}
             <Toaster
               position="bottom-right"
+              richColors
+              duration={4000}
               toastOptions={{
                 className: "text-sm",
               }}

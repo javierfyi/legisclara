@@ -54,7 +54,7 @@ export function AppSidebar() {
               new KeyboardEvent("keydown", { key: "k", metaKey: true })
             )
           }
-          className="flex w-full items-center gap-2 rounded-md border bg-background/50 px-2.5 py-1.5 text-xs text-muted-foreground transition-colors hover:bg-accent hover:text-accent-foreground"
+          className="flex w-full items-center gap-2 rounded-md border bg-background/50 px-2.5 py-1.5 text-xs text-muted-foreground transition-[background-color,color] duration-150 ease-out hover:bg-accent hover:text-accent-foreground cursor-pointer"
         >
           <Search className="h-3.5 w-3.5" />
           <span className="flex-1 text-left">Buscar...</span>
@@ -77,7 +77,7 @@ export function AppSidebar() {
               key={item.name}
               href={item.href}
               className={cn(
-                "flex items-center gap-2.5 rounded-md px-2 py-1.5 text-[13px] font-medium transition-colors duration-150",
+                "flex items-center gap-2.5 rounded-md px-2 py-1.5 text-[13px] font-medium transition-[background-color,color] duration-150 ease-out",
                 isActive
                   ? "bg-sidebar-accent text-sidebar-accent-foreground"
                   : "text-muted-foreground hover:bg-sidebar-accent/50 hover:text-sidebar-accent-foreground"
@@ -94,7 +94,7 @@ export function AppSidebar() {
 
       <div className="flex items-center justify-between px-3 py-2">
         <DropdownMenu>
-          <DropdownMenuTrigger className="flex items-center gap-2 rounded-md px-1 py-1 text-sm transition-colors hover:bg-accent">
+          <DropdownMenuTrigger className="flex items-center gap-2 rounded-md px-1 py-1 text-sm transition-[background-color] duration-150 ease-out hover:bg-accent cursor-pointer">
             <div className="flex h-6 w-6 items-center justify-center rounded-full bg-muted">
               <User className="h-3.5 w-3.5 text-muted-foreground" />
             </div>

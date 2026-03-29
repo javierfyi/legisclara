@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 
 export default function LandingPage() {
   return (
-    <div className="flex min-h-screen flex-col bg-background">
+    <div className="flex min-h-screen flex-col bg-background animate-page-enter">
       <header className="border-b">
         <div className="mx-auto flex max-w-5xl items-center justify-between px-4 py-3 md:px-6">
           <div className="flex items-center gap-2">
@@ -64,7 +64,7 @@ export default function LandingPage() {
         </section>
 
         <section className="border-t">
-          <div className="mx-auto grid max-w-5xl gap-px bg-border md:grid-cols-3">
+          <div className="mx-auto grid max-w-5xl gap-px bg-border md:grid-cols-3 animate-stagger">
             <div className="bg-background px-6 py-8">
               <div className="mb-3 flex h-8 w-8 items-center justify-center rounded-md bg-muted">
                 <MessageSquare className="h-4 w-4 text-muted-foreground" />
@@ -132,13 +132,13 @@ export default function LandingPage() {
             LegisClara — Información orientativa, no asesoría legal.
           </p>
           <div className="flex items-center gap-4 text-[11px] text-muted-foreground">
-            <Link href="/chat" className="transition-colors hover:text-foreground">
+            <Link href="/chat" className="transition-colors duration-150 ease-out hover:text-foreground">
               Chat
             </Link>
-            <Link href="/search" className="transition-colors hover:text-foreground">
+            <Link href="/search" className="transition-colors duration-150 ease-out hover:text-foreground">
               Buscar
             </Link>
-            <Link href="/laws" className="transition-colors hover:text-foreground">
+            <Link href="/laws" className="transition-colors duration-150 ease-out hover:text-foreground">
               Leyes
             </Link>
           </div>

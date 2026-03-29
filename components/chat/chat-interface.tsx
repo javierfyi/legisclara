@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from "react";
 import { useChat } from "@ai-sdk/react";
-import { Send, ArrowUp, Scale, Sparkles } from "lucide-react";
+import { ArrowUp, Scale, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { ChatMessage } from "@/components/chat/chat-message";
 import { ChatDisclaimer } from "@/components/chat/chat-disclaimer";
@@ -64,7 +64,7 @@ export function ChatInterface() {
 
       <div ref={scrollRef} className="flex-1 overflow-y-auto">
         {messages.length === 0 ? (
-          <div className="flex h-full items-center justify-center px-4">
+          <div className="flex h-full items-center justify-center px-4 animate-page-enter">
             <div className="w-full max-w-lg text-center">
               <div className="mx-auto mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-muted">
                 <Scale className="h-5 w-5 text-muted-foreground" />
@@ -76,12 +76,13 @@ export function ChatInterface() {
                 Haz preguntas sobre leyes mexicanas. Cada respuesta incluye
                 artículos citados con sus fuentes.
               </p>
-              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
+              {/* Emil: stagger on first-time/rare view elements */}
+              <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 animate-stagger">
                 {suggestions.map((s) => (
                   <button
                     key={s}
                     onClick={() => handleSuggestion(s)}
-                    className="rounded-md border bg-card px-3 py-2 text-left text-xs text-muted-foreground transition-colors duration-150 hover:bg-accent hover:text-accent-foreground"
+                    className="rounded-md border bg-card px-3 py-2 text-left text-xs text-muted-foreground transition-[background-color,color] duration-150 ease-out hover:bg-accent hover:text-accent-foreground cursor-pointer"
                   >
                     {s}
                   </button>
@@ -121,7 +122,7 @@ export function ChatInterface() {
             placeholder="Escribe tu pregunta legal..."
             disabled={isLoading}
             rows={1}
-            className="w-full resize-none rounded-md border bg-muted/50 px-3 py-2 pr-10 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
+            className="w-full resize-none rounded-md border bg-muted/50 px-3 py-2 pr-10 text-sm placeholder:text-muted-foreground transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background disabled:cursor-not-allowed disabled:opacity-50"
           />
           <Button
             type="submit"

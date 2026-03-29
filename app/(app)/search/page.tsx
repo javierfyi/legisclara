@@ -15,7 +15,7 @@ export const metadata = {
 
 export default function SearchPage() {
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col animate-page-enter">
       <div className="border-b px-4 py-2.5 md:px-6">
         <div className="flex items-center gap-2">
           <Search className="h-4 w-4 text-muted-foreground" />
@@ -30,7 +30,7 @@ export default function SearchPage() {
             <input
               type="text"
               placeholder="Buscar por artículo, ley o tema..."
-              className="w-full rounded-md border bg-muted/50 py-2 pl-10 pr-4 text-sm placeholder:text-muted-foreground focus:outline-none focus:ring-1 focus:ring-ring"
+              className="w-full rounded-md border bg-muted/50 py-2 pl-10 pr-4 text-sm placeholder:text-muted-foreground transition-[border-color,box-shadow] duration-150 ease-out focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
             />
           </div>
 
@@ -38,11 +38,11 @@ export default function SearchPage() {
             <p className="mb-2 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
               Búsquedas recientes
             </p>
-            <div className="flex flex-wrap gap-1.5">
+            <div className="flex flex-wrap gap-1.5 animate-stagger">
               {mockRecentSearches.map((search) => (
                 <button
                   key={search}
-                  className="flex items-center gap-1.5 rounded-md border bg-card px-2.5 py-1 text-xs text-muted-foreground transition-colors duration-150 hover:bg-accent hover:text-accent-foreground"
+                  className="flex items-center gap-1.5 rounded-md border bg-card px-2.5 py-1 text-xs text-muted-foreground transition-[background-color,color] duration-150 ease-out hover:bg-accent hover:text-accent-foreground cursor-pointer"
                 >
                   <Clock className="h-3 w-3" />
                   {search}
@@ -57,11 +57,11 @@ export default function SearchPage() {
             <p className="mb-3 text-[11px] font-medium uppercase tracking-wider text-muted-foreground">
               Legislación disponible
             </p>
-            <div className="space-y-px rounded-md border">
+            <div className="space-y-px rounded-md border animate-stagger">
               {mockLaws.map((law, i) => (
                 <div
                   key={law.id}
-                  className={`flex items-center gap-3 px-3 py-2.5 transition-colors duration-150 hover:bg-accent/50 cursor-pointer ${
+                  className={`flex items-center gap-3 px-3 py-2.5 transition-[background-color] duration-150 ease-out hover:bg-accent/50 cursor-pointer ${
                     i < mockLaws.length - 1 ? "border-b" : ""
                   }`}
                 >

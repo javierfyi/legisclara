@@ -31,7 +31,7 @@ export default function LawsPage() {
   const selectedLaw = mockLaws[0];
 
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-full flex-col animate-page-enter">
       <div className="border-b px-4 py-2.5 md:px-6">
         <div className="flex items-center gap-2">
           <BookOpen className="h-4 w-4 text-muted-foreground" />
@@ -54,7 +54,7 @@ export default function LawsPage() {
                 {mockLaws.slice(0, 5).map((law, i) => (
                   <button
                     key={law.id}
-                    className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-xs transition-colors duration-150 ${
+                    className={`flex w-full items-center gap-2 rounded-md px-2 py-1.5 text-left text-xs transition-[background-color,color] duration-150 ease-out cursor-pointer ${
                       i === 0
                         ? "bg-accent text-accent-foreground font-medium"
                         : "text-muted-foreground hover:bg-accent/50 hover:text-accent-foreground"
@@ -98,11 +98,11 @@ export default function LawsPage() {
 
             <Separator className="mb-4" />
 
-            <div className="space-y-px rounded-md border">
+            <div className="space-y-px rounded-md border animate-stagger">
               {mockArticles.map((article, i) => (
                 <div
                   key={article.number}
-                  className={`cursor-pointer px-3 py-2.5 transition-colors duration-150 hover:bg-accent/50 ${
+                  className={`cursor-pointer px-3 py-2.5 transition-[background-color] duration-150 ease-out hover:bg-accent/50 ${
                     i < mockArticles.length - 1 ? "border-b" : ""
                   }`}
                 >

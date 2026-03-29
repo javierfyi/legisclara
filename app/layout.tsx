@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/components/theme-provider";
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "sonner";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,8 +16,20 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="h-full antialiased">
-      <body className="min-h-full flex flex-col font-sans">{children}</body>
+    <html lang="es" className="h-full" suppressHydrationWarning>
+      <body className="min-h-full flex flex-col font-sans antialiased">
+        <ThemeProvider>
+          <TooltipProvider delayDuration={0}>
+            {children}
+            <Toaster
+              position="bottom-right"
+              toastOptions={{
+                className: "text-sm",
+              }}
+            />
+          </TooltipProvider>
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
